@@ -27,7 +27,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "destructive",  //by default set to deafult but we did destructive
       size: "default",
     },
   }
