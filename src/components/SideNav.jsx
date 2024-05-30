@@ -34,7 +34,9 @@ const SideNav = ({selectedIndex}) => {
 <div className={`fixed md:relative top-36 md:top-0 left-0 h-full transform ${activeToggle ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300 ease-in-out md:block md:w-64 bg-white`}>
         {menuList.map((menu, index) => (
           <h2
-            onClick={() => setActiveIndex(index)}
+            onClick={() => {setActiveIndex(index)
+              selectedIndex(index)
+            }} 
             className={`p-2 text-lg px-7 text-gray-500 my-2 cursor-pointer flex items-center gap-2 hover:bg-destructive hover:text-white ${activeIndex === index && 'bg-destructive text-white'}`}
             key={index}
           >
