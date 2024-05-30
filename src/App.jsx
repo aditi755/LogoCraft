@@ -12,11 +12,11 @@ function App() {
   return (
     <>
      <Header />
-     <div className="w-64 fixed ">
+     <div className="md:w-64 w-16 fixed ">
      <SideNav />
      </div>
-    <div className="ml-64">
-      Body
+    <div className="">
+    
     </div>
     </>
   )
