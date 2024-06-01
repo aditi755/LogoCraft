@@ -20,9 +20,9 @@ function App() {
      </div>
 
      <div className="fixed md:ml-64 ml-20 grid grid-cols-1 md:grid-cols-6">
-     <div className="md:col-span-2 border h-screen shadow-sm p-5 overflow-auto bg-red-100">
-      {selectedIndex == 0 ? <IconController />: <BackgroundController />}
 
+     <div className="md:col-span-2 border h-screen shadow-sm p-5 overflow-auto bg-red-100 ">
+      {selectedIndex == 0 ? <IconController />: <BackgroundController />}
     </div> 
 
    <div className="md:col-span-3 bg-green-100">
