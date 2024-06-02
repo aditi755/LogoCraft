@@ -19,7 +19,7 @@ const IconsList = ({selectedIcon}) => {
    
     const Icon = ({name, color, size}) => {
         const LucidIcon = icons[name];
-        console.log('lucideIcon', LucidIcon)
+       // console.log('lucideIcon', LucidIcon)
         if(!LucidIcon){
           return;
         }
