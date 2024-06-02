@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import {
     Dialog,
     DialogContent,
@@ -10,6 +10,10 @@ import {
 import { Smile } from 'lucide-react'
 import { iconList } from '@/constants/icons'
 import { icons } from 'lucide-react'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import axios from 'axios'
+
+const BASE_URL = 'https://logoexpress.tubeguruji.com/getIcons.php';
 
 const IconsList = ({selectedIcon}) => {
 
@@ -17,6 +21,10 @@ const IconsList = ({selectedIcon}) => {
     const storageValue = JSON.parse(localStorage.getItem('value'))
     const [icon, setIcon] = useState(storageValue?.icon || 'Smile')
    
+    useEffect(() => {
+      getPngIcons()
+    }, [])
+
     const Icon = ({name, color, size}) => {
         const LucidIcon = icons[name];
        // console.log('lucideIcon', LucidIcon)
@@ -24,6 +32,12 @@ const IconsList = ({selectedIcon}) => {
           return;
         }
         return <LucidIcon color={color} size={size} />;
+    }
+
+    const getPngIcons = () => {
+        axios.get(BASE_URL).then((res) => {
+            console.log(res.data)
+        })
     }
 
   return (
@@ -43,7 +57,14 @@ const IconsList = ({selectedIcon}) => {
       <DialogHeader>
         <DialogTitle>Pick your favourite Icon</DialogTitle>
         <DialogDescription>
-         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 overflow-auto h-[400px] p-6">
+        <Tabs defaultValue="icon" className="w-[400px]">
+  <TabsList>
+    <TabsTrigger value="icon">Icons</TabsTrigger>
+    <TabsTrigger value="color-icon">Color Icons</TabsTrigger>
+  </TabsList>
+  <TabsContent value="icon">
+
+  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 overflow-auto h-[400px] p-6">
             {iconList.map((icon, index) => (
               <div className="border p-3 flex rounded-sm items-center justify-center cursor-pointer" 
               onClick={() => {selectedIcon(icon); setOpenDialog(false); setIcon(icon)}}
@@ -52,6 +73,10 @@ const IconsList = ({selectedIcon}) => {
               </div>
             ))}
          </div>
+  </TabsContent>
+  <TabsContent value="color-icon">Color Icons List</TabsContent>
+</Tabs>
+
         </DialogDescription>
       </DialogHeader>
     </DialogContent>
