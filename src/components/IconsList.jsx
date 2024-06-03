@@ -13,14 +13,15 @@ import { icons } from 'lucide-react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import axios from 'axios'
 
-const BASE_URL = 'https://logoexpress.tubeguruji.com/getIcons.php';
+const BASE_URL = 'https://logoexpress.tubeguruji.com';
 
 const IconsList = ({selectedIcon}) => {
 
     const [openDialog, setOpenDialog] = useState(false)
     const storageValue = JSON.parse(localStorage.getItem('value'))
     const [icon, setIcon] = useState(storageValue?.icon || 'Smile')
-   
+   const  [pngIconList, setPngIconList] = useState([]);
+
     useEffect(() => {
       getPngIcons()
     }, [])
@@ -35,8 +36,9 @@ const IconsList = ({selectedIcon}) => {
     }
 
     const getPngIcons = () => {
-        axios.get(BASE_URL).then((res) => {
+        axios.get(BASE_URL + '/getIcons.php').then((res) => {
             console.log(res.data)
+            setPngIconList(res.data)
         })
     }
 
@@ -47,6 +49,7 @@ const IconsList = ({selectedIcon}) => {
     <div onClick={() => setOpenDialog(true)} 
     
     className="p-3 cursor-pointer bg-gray-200 rounded w-20 h-10 ml-3 flex items-center justify-center my-2">
+      {icon?.includes('.png') ? <img src={BASE_URL + '/png/' + icon} /> : 'error'}
     <Icon name={icon} color={'#000'} size={20} />
     </div>
 </div>
@@ -74,7 +77,18 @@ const IconsList = ({selectedIcon}) => {
             ))}
          </div>
   </TabsContent>
-  <TabsContent value="color-icon">Color Icons List</TabsContent>
+  <TabsContent value="color-icon"> 
+  
+  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 overflow-auto h-[400px] p-6">
+            {pngIconList.map((icon, index) => (
+              <div className="border p-3 flex rounded-sm items-center justify-center cursor-pointer" 
+              onClick={() => {selectedIcon(icon); setOpenDialog(false); setIcon(icon)}}
+              key={index} >
+                  <img src={BASE_URL + "/png/" + icon}/>
+ </div>
+            ))}
+            </div>
+  </TabsContent>
 </Tabs>
 
         </DialogDescription>
