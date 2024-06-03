@@ -57,15 +57,15 @@ const LogoPreview = ({downloadIcon}) => {
                 background: storageValue?.bgColor,
             }}>
                 {storageValue?.icon?.includes('.png')? 
-                <img src={BASE_URL + "/png/" + storageValue?.icon} style={{
+                <img src={ "/png/" + storageValue?.icon} style={{
                   height: storageValue?.iconSize,
                   width: storageValue?.iconSize  
-                }}/> : 'eror'}
-                <Icon name={storageValue?.icon} 
+                }}/> :  <Icon name={storageValue?.icon} 
                 color = {storageValue?.iconColor}
                 size={storageValue?.iconSize}
                 rotate={storageValue?.iconRotate}
-                />
+                />}
+               
             </div>
         </div>
     </div>

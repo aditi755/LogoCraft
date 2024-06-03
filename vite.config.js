@@ -18,4 +18,12 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+//Proxy server helps in downloading color icons
+  server: {
+    port: '3333',
+    strictPort: true,
+    proxy: {
+      '/png': 'https://logoExpress.tubeguruji.com',
+    }
+  }
 })

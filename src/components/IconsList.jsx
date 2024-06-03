@@ -49,8 +49,8 @@ const IconsList = ({selectedIcon}) => {
     <div onClick={() => setOpenDialog(true)} 
     
     className="p-3 cursor-pointer bg-gray-200 rounded w-20 h-10 ml-3 flex items-center justify-center my-2">
-      {icon?.includes('.png') ? <img src={BASE_URL + '/png/' + icon} /> : 'error'}
-    <Icon name={icon} color={'#000'} size={20} />
+      {icon?.includes('.png') ? <img src={BASE_URL + '/png/' + icon} /> :  <Icon name={icon} color={'#000'} size={20} /> }
+  
     </div>
 </div>
 
