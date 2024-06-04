@@ -37,7 +37,6 @@ const IconsList = ({selectedIcon}) => {
 
     const getPngIcons = () => {
         axios.get(BASE_URL + '/getIcons.php').then((res) => {
-            console.log(res.data)
             setPngIconList(res.data)
         })
     }
@@ -45,7 +44,7 @@ const IconsList = ({selectedIcon}) => {
   return (
     <>
     <div>
-    <label>Icon</label>
+    <label className="font-bold">Icon</label>
     <div onClick={() => setOpenDialog(true)} 
     
     className="p-3 cursor-pointer bg-gray-200 rounded w-20 h-10 ml-3 flex items-center justify-center my-2">

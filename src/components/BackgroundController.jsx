@@ -1,57 +1,3 @@
-// import React, {useState, useEffect, useContext} from 'react'
-// import { Slider } from "@/components/ui/slider"
-// import ColorPickerController from './ColorPickerController'
-// import { UpdateStorageContext } from '@/context/UpdateStorageContext'
-
-// const BackgroundController = () => {
-//   const [rounded, setRounded] = useState(0)
-//   const [padding, setPadding] = useState(0)
-//   const [color, setColor] = useState('#000')
-
-//   const storageValue = JSON.parse(localStorage.getItem('value'));
-//   const {updateStorage, setUpdateStorage} = useContext(UpdateStorageContext)
-
-//   useEffect(() => {
-//     const updatedValue = {
-//       ...storageValue,
-//       bgRounded: rounded,
-//       bgPadding: padding,
-//       bgColor: color
-//     }
-//     setUpdateStorage(updatedValue)
-//     console.log('updatestorage'.updateStorage)
-//     console.log('updateValue',updatedValue)
-//     localStorage.setItem('value', JSON.stringify(updatedValue))
-
-//   }, [rounded, padding, color])
-
-//   return (
-//     <div>
-//     <div className="py-2"> 
-//     <label className="p-2 flex justify-between items-center">Rounded <span>{rounded} px</span></label>
-//     <Slider defaultValue={[0]} max={512} step={1}
-//     onValueChange={(event) => setRounded(event[0])}
-//     />
-//     </div> 
-
-// <div className="py-2">
-// <label className="p-2 flex justify-between items-center">Padding <span>{padding} px</span></label>
-// <Slider defaultValue={[40]} max={512} step={1}
-// onValueChange={(event) => setPadding(event[0])}
-// />
-// </div> 
-
-// <div className="py-2">
-// <label className="p-2 flex justify-between items-center">Color <span>{color} px</span></label>
-// <ColorPickerController hideController={false} selectedColor={(color) => setColor(color)}/>
-// </div> 
-
-// </div>
-//   )
-// }
-
-// export default BackgroundController
-
 import React, { useState, useEffect, useContext } from 'react';
 import { Slider } from "@/components/ui/slider";
 import ColorPickerController from './ColorPickerController';
@@ -86,7 +32,7 @@ const BackgroundController = () => {
   return (
     <div>
       <div className="py-2">
-        <label className="p-2 flex justify-between items-center">
+        <label className="p-2 flex justify-between items-center font-bold">
           Rounded <span>{rounded} px</span>
         </label>
         <Slider
@@ -97,7 +43,7 @@ const BackgroundController = () => {
         />
       </div>
       <div className="py-2">
-        <label className="p-2 flex justify-between items-center">
+        <label className="p-2 flex justify-between items-center font-bold">
           Padding <span>{padding} px</span>
         </label>
         <Slider
@@ -108,7 +54,7 @@ const BackgroundController = () => {
         />
       </div>
       <div className="py-2">
-        <label className="p-2 flex justify-between items-center">
+        <label className="p-2 flex justify-between items-center font-bold">
           Color <span>{color}</span>
         </label>
         <ColorPickerController

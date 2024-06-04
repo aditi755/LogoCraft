@@ -36,7 +36,6 @@ const LogoPreview = ({downloadIcon}) => {
 
     const Icon = ({name, color, size, rotate}) => {
         const LucidIcon = icons[name];
-        //console.log('lucideIcon', LucidIcon)
         if(!LucidIcon){
           return;
         }
@@ -46,7 +45,9 @@ const LogoPreview = ({downloadIcon}) => {
     }
     
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center h-screen
+
+    ">
         <div className="md:h-[400px] md:w-[400px] bg-gray-200 outline-dotted outline-gray-300  "  style={{
             padding:storageValue?.bgPadding
         }}>
