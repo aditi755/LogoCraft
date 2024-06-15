@@ -1,7 +1,7 @@
 ## LogoCraft - A React App for Custom Logos
 A webapp built with React, Shadcn UI, and Tailwind CSS. It allows to create custom logos with ease.
 
-Deplyed app link: https://logo-craft-olive.vercel.app/
+Deployed app link: https://logo-craft-olive.vercel.app/
 ### Features
 
 - Color Selection: Choose from a variety of colors or use hex codes for precise control.
@@ -33,3 +33,7 @@ Deplyed app link: https://logo-craft-olive.vercel.app/
 ```npm start```
 Open http://localhost:3000 in your browser to start creating logos!
 Note: Replace your-username/logo-maker.git with the actual URL of your repository if you've hosted it on GitHub or another platform.
+
+### Demo
+![Screenshot (77)](https://github.com/aditi755/LogoCraft/assets/107920147/f34e77b3-573c-4693-aab6-b650c75e3017)
+
