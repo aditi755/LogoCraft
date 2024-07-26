@@ -1,5 +1,5 @@
 ## LogoCraft - A React App for Custom Logos
-A webapp built with React, Shadcn UI, and Tailwind CSS. It allows to create custom logos with ease.
+A webapp built with React, Context API, Shadcn UI, and Tailwind CSS. It allows to create custom logos with ease.
 
 Deployed app link: https://logo-craft-olive.vercel.app/
 ### Features
